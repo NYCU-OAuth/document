@@ -13,9 +13,9 @@
 1. 連接到平台網頁 `https://id.nctu.edu.tw/`
 2. 透過學號/工號登入
 3. 在此頁面 `https://id.nctu.edu.tw/apply/new/` 申請一個新的應用程式
-* Client type: public
-* Authorization grant type: authorization-code
-* Redirect uris: 請填寫欲串接平台對應接收OAuth參數之網址，此以 `http://example.com/oauth/` 作為範例
+   * Client type: public
+   * Authorization grant type: authorization-code
+   * Redirect uris: 請填寫欲串接平台對應接收OAuth參數之網址，此以 `http://example.com/oauth/` 作為範例
 4. 在此頁面找到 `http://id.nctu.edu.tw/apply/`，獲取剛剛所申請到的 Client Id, Client Secret, Redirect uris
 
 （二）獲取使用者授權
@@ -31,20 +31,24 @@
 --
 
 1.  透過 POST 方式 `https://id.nctu.edu.tw/o/token/`，form-data 包含以下資料
-`` grant_type: authorization_code
+```
+grant_type: authorization_code
 code: <Code>
 client_id:<Client id>
 client_secret: <Client Secret>
-redirect_uri: <URL> ``
+redirect_uri: <URL> 
+```
 
 2. 伺服器應回傳以下資料
-``{
+```javascript
+{
     "token_type": "Bearer",
     "expires_in": 36000,
     "access_token": <Access Token>,
     "scope": "profile",
     "refresh_token": <Refresh Token>
-}``
+}
+```
 
 四: 獲取使用者資訊名稱
 --
