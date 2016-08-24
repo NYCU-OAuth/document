@@ -30,25 +30,25 @@
 三: 與OAuth伺服器換取Token
 --
 
-1.  透過 POST 方式 `https://id.nctu.edu.tw/o/token/`，form-data 包含以下資料
-```
-grant_type: authorization_code
-code: <Code>
-client_id:<Client id>
-client_secret: <Client Secret>
-redirect_uri: <URL> 
-```
+1. 透過 POST 方式 `https://id.nctu.edu.tw/o/token/`，form-data 包含以下資料
+   ```
+   grant_type: authorization_code
+   code: <Code>
+   client_id:<Client id>
+   client_secret: <Client Secret>
+   redirect_uri: <URL> 
+   ```
 
 2. 伺服器應回傳以下資料
-```javascript
-{
-    "token_type": "Bearer",
-    "expires_in": 36000,
-    "access_token": <Access Token>,
-    "scope": "profile",
-    "refresh_token": <Refresh Token>
-}
-```
+   ```javascript
+   {
+      "token_type": "Bearer",
+        "expires_in": 36000,
+        "access_token": <Access Token>,
+      "scope": "profile",
+      "refresh_token": <Refresh Token>
+   }
+   ```
 
 四: 獲取使用者資訊名稱
 --
