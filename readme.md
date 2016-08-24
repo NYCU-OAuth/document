@@ -16,7 +16,7 @@
    * Client type: public
    * Authorization grant type: authorization-code
    * Redirect uris: 請填寫欲串接平台對應接收OAuth參數之網址，此以 `http://example.com/oauth/` 作為範例
-4. 在此頁面找到 `http://id.nctu.edu.tw/apply/`，獲取剛剛所申請到的 Client Id, Client Secret, Redirect uris
+4. 在此頁面找到 `https://id.nctu.edu.tw/apply/`，獲取剛剛所申請到的 Client Id, Client Secret, Redirect uris
 
 （二）獲取使用者授權
 --
