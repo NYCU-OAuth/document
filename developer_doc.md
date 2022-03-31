@@ -52,18 +52,25 @@
 3. 在此頁面 `https://id.nycu.edu.tw/apply/new/` 申請一個新的應用程式
    * Client type: public
    * Authorization grant type: authorization-code
-   * Redirect uris: 請填寫欲串接平台對應接收 OAuth 參數之網址，此以 `http://example.com/oauth/` 作為範例
+   * Redirect uris: 請填寫欲串接平台對應接收 OAuth 參數之網址，此以 `http://example.com/oauth/` 作為範例，此欄位為白名單機制，如需要多個網址，請填寫所有使用的網址。
 4. 在此頁面找到 `https://id.nycu.edu.tw/apply/`，獲取剛剛所申請到的 Client Id, Client Secret, Redirect uris
 
 #### 獲取使用者授權
 
 1. 根據所需scope，讓使用者透過瀏覽器開啟
    - 存取 profile
-     `https://id.nycu.edu.tw/o/authorize/?client_id=<Client id>&response_type=code&scope=profile`
+     ```
+     https://id.nycu.edu.tw/o/authorize/?client_id=<Client id>&response_type=code&scope=profile&redirect_uri=http://example.com/oauth/
+     ```
    - 存取 name
-     `https://id.nycu.edu.tw/o/authorize/?client_id=<Client id>&response_type=code&scope=name`
+     ```
+     https://id.nycu.edu.tw/o/authorize/?client_id=<Client id>&response_type=code&scope=name&redirect_uri=http://example.com/oauth/
+     ```
    - 存取 name + profile
-     `https://id.nycu.edu.tw/o/authorize/?client_id=<Client id>&response_type=code&scope=profile%20name`
+     ```
+     https://id.nycu.edu.tw/o/authorize/?client_id=<Client id>&response_type=code&scope=profile%20name&redirect_uri=http://example.com/oauth/
+     ```
+   - `redirect_uri` 參數為使用者授權後導向的網址，可輸入在申請應用程式時填寫的 Redirect uris 中的任一個。
 
 2. 按下授權
 3. 成功授權後，瀏覽器會導向 `http://example.com/oauth/?code=<Code>`
@@ -81,7 +88,7 @@
    redirect_uri: http://example.com/oauth/
    ```
 
-   請注意 redirect_uri 必須包含在申請步驟的中所填寫的 Redirect uris 欄位中（可多個），否則會有錯誤。
+   請注意 `redirect_uri` 必須包含在申請步驟的中所填寫的 Redirect uris 欄位中，否則會有錯誤。
 
 2. 伺服器應回傳以下資料
 
